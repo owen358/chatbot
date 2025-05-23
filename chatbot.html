@@ -3,42 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chatbot</title>
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-      }
-    </style>
+    <script type="module" src="https://cdn.voiceflow.com/widget/bundle.mjs"></script>
     <script type="module">
-      const vfScript = document.createElement('script');
-      vfScript.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
-      vfScript.type = 'module';
-
-      vfScript.onload = () => {
-        const interval = setInterval(() => {
-          if (window.voiceflow?.chat?.load) {
-            window.voiceflow.chat.load({
-              verify: { projectID: '68285e82b919d601dd58028f' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              assistant: {
-                // optional: force widget to bottom-right chat bubble mode
-                container: document.body,
-              },
-              voice: {
-                url: 'https://runtime-api.voiceflow.com'
-              }
-            });
-            clearInterval(interval);
-          }
-        }, 100);
-      };
-
-      document.head.appendChild(vfScript);
+      window.voiceflow.chat.load({
+        verify: { projectID: '68285e82b919d601dd58028f' },
+        url: 'https://general-runtime.voiceflow.com',
+        versionID: 'production',
+        assistant: {
+          // Leave this alone to allow default positioning (bottom right)
+        },
+        voice: {
+          url: 'https://runtime-api.voiceflow.com'
+        }
+      });
     </script>
   </head>
-  <body>
-  </body>
+  <body style="margin:0;padding:0;"></body>
 </html>
