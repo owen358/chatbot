@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Chatbot</title>
-    <script type="module" src="https://cdn.voiceflow.com/widget/bundle.mjs"></script>
-    <script type="module">
-      window.voiceflow.chat.load({
-        verify: { projectID: '68285e82b919d601dd58028f' },
-        url: 'https://general-runtime.voiceflow.com',
-        versionID: 'production',
-        assistant: {
-          // Leave this alone to allow default positioning (bottom right)
-        },
-        voice: {
-          url: 'https://runtime-api.voiceflow.com'
-        }
-      });
-    </script>
-  </head>
-  <body style="margin:0;padding:0;"></body>
-</html>
+<script type="module" src="https://cdn.voiceflow.com/widget/bundle.mjs"></script>
+<script type="module">
+  window.voiceflow.chat.load({
+    verify: { projectID: '68285e82b919d601dd58028f' },
+    url: 'https://general-runtime.voiceflow.com',
+    versionID: 'production',
+    voice: {
+      url: 'https://runtime-api.voiceflow.com'
+    }
+  });
+</script>
