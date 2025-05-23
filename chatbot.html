@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <script type="module">
+      const script = document.createElement('script');
+      script.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+      script.type = 'module';
+      script.onload = () => {
+        window.voiceflow.chat.load({
+          verify: { projectID: '68285e82b919d601dd58028f' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: 'https://runtime-api.voiceflow.com'
+          }
+        });
+      };
+      document.head.appendChild(script);
+    </script>
+  </body>
+</html>
