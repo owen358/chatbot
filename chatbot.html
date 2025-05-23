@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Chatbot</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
     <script type="module">
       const vfScript = document.createElement('script');
       vfScript.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
       vfScript.type = 'module';
 
       vfScript.onload = () => {
-        // Wait until Voiceflow is defined before trying to load the chat
         const interval = setInterval(() => {
           if (window.voiceflow?.chat?.load) {
             window.voiceflow.chat.load({
               verify: { projectID: '68285e82b919d601dd58028f' },
               url: 'https://general-runtime.voiceflow.com',
               versionID: 'production',
+              assistant: {
+                // optional: force widget to bottom-right chat bubble mode
+                container: document.body,
+              },
               voice: {
                 url: 'https://runtime-api.voiceflow.com'
               }
             });
             clearInterval(interval);
           }
-        }, 100); // Check every 100ms until ready
+        }, 100);
       };
 
       document.head.appendChild(vfScript);
