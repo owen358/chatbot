@@ -2,23 +2,31 @@
 <html>
   <head>
     <title>Chatbot</title>
+    <script type="module">
+      const vfScript = document.createElement('script');
+      vfScript.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+      vfScript.type = 'module';
+
+      vfScript.onload = () => {
+        // Wait until Voiceflow is defined before trying to load the chat
+        const interval = setInterval(() => {
+          if (window.voiceflow?.chat?.load) {
+            window.voiceflow.chat.load({
+              verify: { projectID: '68285e82b919d601dd58028f' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: 'https://runtime-api.voiceflow.com'
+              }
+            });
+            clearInterval(interval);
+          }
+        }, 100); // Check every 100ms until ready
+      };
+
+      document.head.appendChild(vfScript);
+    </script>
   </head>
   <body>
-    <script type="module">
-      const script = document.createElement('script');
-      script.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
-      script.type = 'module';
-      script.onload = () => {
-        window.voiceflow.chat.load({
-          verify: { projectID: '68285e82b919d601dd58028f' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: 'https://runtime-api.voiceflow.com'
-          }
-        });
-      };
-      document.head.appendChild(script);
-    </script>
   </body>
 </html>
